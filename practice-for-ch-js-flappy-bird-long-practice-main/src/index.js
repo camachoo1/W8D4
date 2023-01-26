@@ -1,4 +1,5 @@
 import FlappyBird from './game';
-
-const canvas = document.getElementById('bird-game');
-new FlappyBird(canvas);
+document.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.getElementById('bird-game');
+  new FlappyBird(canvas);
+});
