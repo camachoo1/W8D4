@@ -1,18 +1,18 @@
-function sum() {
+const sum = () => {
   let sum = 0;
   for (let i = 0; i < arguments.length; i++) {
     sum += arguments[i];
   }
   return sum;
-}
+};
 
-function sum2(...args) {
+const sum2 = (...args) => {
   let sum = 0;
   for (let i = 0; i < args.length; i++) {
     sum += args[i];
   }
   return sum;
-}
+};
 
 Function.prototype.myBind = function (ctx) {
   let that = this;
@@ -30,22 +30,22 @@ Function.prototype.myBind2 = function (ctx, ...bindArgs) {
   };
 };
 
-function curriedSum(numArgs) {
+const curriedSum = (numArgs) => {
   numbers = [];
   return function _curriedSum(num) {
     numbers.push(num);
     if (numbers.length < numArgs) {
       return _curriedSum;
     } else {
-      let sum = 0;
-      numbers.forEach((num) => {
-        sum += num;
-      });
-      return sum;
-      // numbers.reduce((acc, el) => {return acc + el})
+      // let sum = 0;
+      // numbers.forEach((num) => {
+      //   sum += num;
+      return numbers.reduce((acc, el) => acc + el);
     }
+    // return sum;
   };
-}
+};
+// };
 
 const curSum = curriedSum(4);
 console.log(curSum(5)(30)(20)(1)); // => 56
