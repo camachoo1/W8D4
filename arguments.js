@@ -52,26 +52,26 @@ console.log(curSum(5)(30)(20)(1)); // => 56
 
 Function.prototype.curry = function (numArgs) {
   let that = this;
-  let numbers = []; // [5, 30, 20, 1]
+  let args = []; // [5, 30, 20, 1]
   return function _curry(num) {
-    numbers.push(num);
-    if (numbers.length < numArgs) {
-      return _curry(...numbers);
+    args.push(num);
+    if (args.length < numArgs) {
+      return _curry;
     } else {
-      return that(numbers);
+      return that(...args);
     }
   };
 };
 
 Function.prototype.curry2 = function (numArgs) {
   let that = this;
-  let numbers = [];
-  return function _curry(num) {
-    numbers.push(num);
-    if (numbers.length < numArgs) {
+  let args = [];
+  return function _curry(arg) {
+    args.push(arg);
+    if (args.length < numArgs) {
       return _curry2;
     } else {
-      return that.apply(null, numbers);
+      return that.apply(null, args);
     }
   };
 };

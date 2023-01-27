@@ -31,3 +31,4 @@ ship1.move();
 ship1.sail();
 ast1.move();
 // ast1.prototype.sail
+
